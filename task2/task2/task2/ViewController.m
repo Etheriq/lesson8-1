@@ -23,19 +23,12 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self loadSystemFonts];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOrientationState:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-//    self.cur
-    
-//    self.textLabel.bounds.size.width = self.view.bounds.size.width;
 }
 
 #pragma mark - Actions
@@ -68,6 +61,35 @@
 
 - (IBAction)ClearButtonAction:(UIBarButtonItem *)sender {
     self.textLabel.text = @"";
+}
+
+#pragma mark - Orientation
+
+-(void) handleOrientationState: (NSNotification *) notification {
+    if ([[UIDevice currentDevice] orientation] == UIDeviceOrientationPortrait) {
+        NSLog(@"Portrait");
+        
+        NSString *strOriginal = self.textLabel.text;
+        NSString *res = nil;
+        
+        if ([strOriginal length] > 200) {
+            res = [strOriginal substringToIndex:200];
+        } else {
+            res = strOriginal;
+        }
+        
+        NSAttributedString *resultAttr = [[NSAttributedString alloc] initWithString:res
+                                                              attributes:@{NSStrikethroughStyleAttributeName:
+                                                                           [NSNumber numberWithInteger:NSUnderlineStyleSingle]
+                                                                           }];
+        self.textLabel.attributedText = resultAttr;
+        
+    } else if ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft || [[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight) {
+        NSLog(@"Landscape");
+        NSAttributedString *defaultAttr = [[NSAttributedString alloc] initWithString:self.textLabel.text attributes:nil];
+        
+        self.textLabel.attributedText = defaultAttr;
+    }
 }
 
 #pragma mark - Custom methods

@@ -38,15 +38,13 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvT-Ah-tTm">
-                                        <rect key="frame" x="10" y="10" width="300" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="wod-qm-3i4"/>
-                                        </constraints>
+                                        <rect key="frame" x="10" y="10" width="580" height="60"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Paragraph 1  Paragraph 2">
                                                 <attributes>
                                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -67,6 +65,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="5dZ-66-nEe" secondAttribute="trailing" constant="-20" id="72B-9Q-jN1"/>
                             <constraint firstItem="5dZ-66-nEe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="H8y-ig-9Ub"/>
                             <constraint firstItem="5dZ-66-nEe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dSn-AX-J89"/>
+                            <constraint firstItem="uvT-Ah-tTm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-20" id="xbI-bR-g0J"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Task2" id="ZBp-AH-3UB">
