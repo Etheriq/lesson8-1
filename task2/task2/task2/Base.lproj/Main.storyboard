@@ -67,9 +67,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Task2" id="ZBp-AH-3UB">
-                        <barButtonItem key="leftBarButtonItem" title="Add" id="ggC-u4-xQH"/>
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="UsZ-9o-9NX"/>
+                        <barButtonItem key="leftBarButtonItem" title="Add" id="ggC-u4-xQH">
+                            <connections>
+                                <action selector="AddButtonAction:" destination="BYZ-38-t0r" id="lQ9-6h-RCH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="UsZ-9o-9NX">
+                            <connections>
+                                <action selector="ClearButtonAction:" destination="BYZ-38-t0r" id="xYL-IZ-P1P"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textLabel" destination="uvT-Ah-tTm" id="wiL-Ez-4tr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
