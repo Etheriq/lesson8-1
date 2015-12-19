@@ -23,7 +23,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self loadSystemFonts];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,16 +44,21 @@
                                          }];
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
-    paragraph.paragraphSpacing = [self getRandomStingSize];
-    paragraph.headIndent = [self getRandomStingSize];
-    paragraph.firstLineHeadIndent = [self getRandomStingSize];
-    paragraph.tailIndent = [self getRandomStingSize];
+    paragraph.paragraphSpacing = 5;// [self getRandomStingSize];
+    paragraph.headIndent = 5;// [self getRandomStingSize];
+    paragraph.firstLineHeadIndent = 5; // [self getRandomStingSize];
+    paragraph.tailIndent = 5; //[self getRandomStingSize];
+//    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     
     [attr addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, [randomString length])];
-    //    [attr appendAttributedString:origin];
+        [attr appendAttributedString:origin];
     [attr replaceCharactersInRange:NSMakeRange([origin length], 0) withString:@"\n"];
     
     self.textLabel.attributedText = attr;
+
+//        self.textLabel.text = attr.string;
+    
+    NSLog(@"%@", randomString);
 }
 
 - (IBAction)ClearButtonAction:(UIBarButtonItem *)sender {
@@ -81,7 +85,11 @@
     NSUInteger from = arc4random() % baseStringLenght;
     NSUInteger to = arc4random() % (baseStringLenght - from);
     
-    return [baseString substringWithRange:NSMakeRange(from, to)];
+    NSLog(@"Len = %li, from %li to %li", baseStringLenght, from, to);
+
+    return [baseString substringFromIndex:from];
+    
+//    return [baseString substringWithRange:NSMakeRange(from, to)];
 }
 
 - (NSString*) getRandomSystemFont {

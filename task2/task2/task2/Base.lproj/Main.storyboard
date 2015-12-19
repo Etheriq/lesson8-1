@@ -37,8 +37,12 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dZ-66-nEe">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvT-Ah-tTm">
-                                        <rect key="frame" x="10" y="10" width="94" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvT-Ah-tTm">
+                                        <rect key="frame" x="10" y="10" width="300" height="60"/>
+                                        <color key="backgroundColor" red="0.59424514049999999" green="0.99386297270000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="wod-qm-3i4"/>
+                                        </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="Paragraph 1  Paragraph 2">
                                                 <attributes>
@@ -47,7 +51,7 @@
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
-                                        <nil key="highlightedColor"/>
+                                        <color key="highlightedColor" red="0.85965450480000005" green="0.0" blue="0.087931995400000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -69,17 +73,17 @@
                     <navigationItem key="navigationItem" title="Task2" id="ZBp-AH-3UB">
                         <barButtonItem key="leftBarButtonItem" title="Add" id="ggC-u4-xQH">
                             <connections>
-                                <action selector="AddButtonAction:" destination="BYZ-38-t0r" id="lQ9-6h-RCH"/>
+                                <action selector="AddButtonAction:" destination="BYZ-38-t0r" id="r4u-Lc-8Bw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="UsZ-9o-9NX">
                             <connections>
-                                <action selector="ClearButtonAction:" destination="BYZ-38-t0r" id="xYL-IZ-P1P"/>
+                                <action selector="ClearButtonAction:" destination="BYZ-38-t0r" id="Owv-T9-nLl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="textLabel" destination="uvT-Ah-tTm" id="wiL-Ez-4tr"/>
+                        <outlet property="textLabel" destination="uvT-Ah-tTm" id="9iK-nh-t9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
