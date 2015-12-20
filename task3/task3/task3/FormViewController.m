@@ -34,6 +34,11 @@
                  @"" , GH_FORM_ADDRESS,
                  self.comments.text , GH_FORM_COMMENTS,
                  nil];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardDidShowNotification object:nil];
+    [nc addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardDidHideNotification object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,6 +97,18 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }
+}
+
+#pragma mark - Keyboard
+
+- (void)onKeyboardShow:(NSNotification *) notification {
+    if (![self.comments isFirstResponder]) {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+}
+
+- (void)onKeyboardHide:(NSNotification *) notification {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark - Validation
@@ -165,9 +182,12 @@
         [self.phone becomeFirstResponder];
     } else if ([textField isEqual:self.phone]) {
         [self.address becomeFirstResponder];
-    } else {
-        [self.comments becomeFirstResponder];
+    } else if ([textField isEqual:self.address]) {
+        [textField resignFirstResponder];
     }
+//    else {
+//        [self.comments becomeFirstResponder];
+//    }
     
     return YES;
 }
