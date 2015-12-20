@@ -80,18 +80,32 @@
         [self.comments resignFirstResponder];
     }
     
-    // ***** Validation *****
+    if ([self isFormValid]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Form validation" message:@"Validation passed" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {
+                                 [self performSegueWithIdentifier:@"resultSegue" sender:nil];                                 
+                             }];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
     
-    // ***** ********** *****
-    
-//    [self performSegueWithIdentifier:@"resultSegue" sender:nil];
+    } else {
+
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Form validation" message:@"Validation failed" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                             }];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 #pragma mark - Validation
 
 - (BOOL) isFormValid {
     
-    return NO;
+    return YES;
 }
 
 #pragma mark - Navigation
