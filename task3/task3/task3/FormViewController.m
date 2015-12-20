@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *address;
 @property (weak, nonatomic) IBOutlet UITextView *comments;
 @property (strong, nonatomic) NSMutableDictionary *data;
-
+@property (strong, nonatomic) NSString *validationErrorMessage;
 
 @end
 
@@ -41,13 +41,6 @@
                  @"" , GH_FORM_ADDRESS,
                  @"" , GH_FORM_COMMENTS,
                  nil];
-
-    
-    NSLog(@"%@", self.data);
-}
-
--(void)viewDidAppear:(BOOL)animated {
-	[super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,8 +68,30 @@
 
 - (IBAction)saveAction:(UIBarButtonItem *)sender {
     
+    if ([self.name isFirstResponder]) {
+        [self.name resignFirstResponder];
+    } else if ([self.email isFirstResponder]) {
+        [self.email resignFirstResponder];
+    } else if ([self.phone isFirstResponder]) {
+        [self.phone resignFirstResponder];
+    } else if ([self.address isFirstResponder]) {
+        [self.address resignFirstResponder];
+    } else if ([self.comments isFirstResponder]) {
+        [self.comments resignFirstResponder];
+    }
     
-    [self performSegueWithIdentifier:@"resultSegue" sender:nil];
+    // ***** Validation *****
+    
+    // ***** ********** *****
+    
+//    [self performSegueWithIdentifier:@"resultSegue" sender:nil];
+}
+
+#pragma mark - Validation
+
+- (BOOL) isFormValid {
+    
+    return NO;
 }
 
 #pragma mark - Navigation
@@ -106,6 +121,13 @@
     return YES;
 }
 
+#pragma mark - UITextViewDelegate
 
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    
+    if ([textView isEqual:self.comments]) {
+        [self.data setObject:textView.text forKey:GH_FORM_COMMENTS];
+    }
+}
 
 @end
