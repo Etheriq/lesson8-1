@@ -9,6 +9,7 @@
 #import "ResultViewController.h"
 
 @interface ResultViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *result;
 
 @end
 
