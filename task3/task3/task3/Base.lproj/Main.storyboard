@@ -37,25 +37,41 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXg-lU-9iO" userLabel="Form View">
                                 <rect key="frame" x="20" y="84" width="560" height="340"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytX-CE-dEt" userLabel="Name">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ytX-CE-dEt" userLabel="Name">
                                         <rect key="frame" x="20" y="20" width="520" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                        <connections>
+                                            <action selector="saveDataLstener:" destination="BYZ-38-t0r" eventType="editingChanged" id="WeT-Ar-SGS"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="ck0-pN-geM"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7by-vr-3bL" userLabel="Email">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7by-vr-3bL" userLabel="Email">
                                         <rect key="frame" x="20" y="70" width="520" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                        <connections>
+                                            <action selector="saveDataLstener:" destination="BYZ-38-t0r" eventType="editingChanged" id="z40-cP-0fe"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="obg-Lg-DGp"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yx3-sY-duI" userLabel="Phone Number">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yx3-sY-duI" userLabel="Phone Number">
                                         <rect key="frame" x="20" y="120" width="520" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                        <connections>
+                                            <action selector="saveDataLstener:" destination="BYZ-38-t0r" eventType="editingChanged" id="sZy-eP-ldL"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="KRJ-eC-aPq"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nZ-aU-Sm2" userLabel="Address">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9nZ-aU-Sm2" userLabel="Address">
                                         <rect key="frame" x="20" y="170" width="520" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                        <connections>
+                                            <action selector="saveDataLstener:" destination="BYZ-38-t0r" eventType="editingChanged" id="KPq-o9-Vk9"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="34P-Op-n6o"/>
+                                        </connections>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Ji-cp-xM1" userLabel="Comments">
                                         <rect key="frame" x="20" y="220" width="520" height="100"/>
@@ -65,7 +81,8 @@
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,7 +116,7 @@
                     <navigationItem key="navigationItem" title="Task3" id="CLx-Qr-sVZ">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="bMb-4V-f1b">
                             <connections>
-                                <segue destination="1lc-t5-Vbe" kind="show" id="QcD-Ab-lV8"/>
+                                <action selector="saveAction:" destination="BYZ-38-t0r" id="ZGi-SU-g0V"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -109,6 +126,7 @@
                         <outlet property="email" destination="7by-vr-3bL" id="Zv3-5M-2h0"/>
                         <outlet property="name" destination="ytX-CE-dEt" id="fIu-SR-aZL"/>
                         <outlet property="phone" destination="Yx3-sY-duI" id="AXa-V3-hmm"/>
+                        <segue destination="1lc-t5-Vbe" kind="show" identifier="resultSegue" id="gFD-sV-9ZK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -142,12 +160,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="result" destination="ri4-pO-tL9" id="2Vr-yl-d9Y"/>
+                        <outlet property="resultLabel" destination="ri4-pO-tL9" id="pJg-3d-pEM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hul-n4-fix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="258"/>
+            <point key="canvasLocation" x="528" y="258"/>
         </scene>
     </scenes>
 </document>

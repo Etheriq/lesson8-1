@@ -10,4 +10,6 @@
 
 @interface ResultViewController : UIViewController
 
+@property (strong, nonatomic) NSDictionary *result;
+
 @end

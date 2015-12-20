@@ -9,7 +9,8 @@
 #import "ResultViewController.h"
 
 @interface ResultViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *result;
+
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
 @end
 
@@ -18,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    NSLog(@"%@", self.result);
 }
 
 - (void)didReceiveMemoryWarning {
