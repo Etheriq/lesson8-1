@@ -9,13 +9,6 @@
 #import "FormViewController.h"
 #import "ResultViewController.h"
 
-#define GH_FORM_NAME @"gh_name"
-#define GH_FORM_EMAIL @"gh_email"
-#define GH_FORM_PHONE @"gh_phone"
-#define GH_FORM_ADDRESS @"gh_address"
-#define GH_FORM_COMMENTS @"gh_comments"
-
-
 @interface FormViewController () <UITextFieldDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
@@ -39,7 +32,7 @@
                  @"" , GH_FORM_EMAIL,
                  @"" , GH_FORM_PHONE,
                  @"" , GH_FORM_ADDRESS,
-                 @"" , GH_FORM_COMMENTS,
+                 self.comments.text , GH_FORM_COMMENTS,
                  nil];
 }
 
