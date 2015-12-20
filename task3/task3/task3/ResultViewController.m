@@ -38,6 +38,8 @@
     NSLog(@"%@", self.result);
 }
 
+#pragma mark - AttributedStrings
+
 -(NSMutableAttributedString *) getAttributedString:(NSString*) key withValue:(NSString*) value {
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:key attributes:
                                  @{
@@ -78,7 +80,6 @@
     
     return origin;
 }
-
 
 -(NSAttributedString*) getBlankString {
     NSAttributedString *blank = [[NSAttributedString alloc] initWithString:@"\n" attributes:nil];
