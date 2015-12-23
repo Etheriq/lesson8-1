@@ -9,9 +9,11 @@
 #import "ResultViewController.h"
 #import "FormViewController.h"
 
-@interface ResultViewController ()
+@interface ResultViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrolleView;
+@property (strong, nonatomic) UITextField *activeField;
 
 @end
 
@@ -95,10 +97,51 @@
 
 - (void)onKeyboardShow:(NSNotification *) notification {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    NSDictionary* info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 5, 0.0);
+    self.scrolleView.contentInset = contentInsets;
+    self.scrolleView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
+        [self.scrolleView scrollRectToVisible:self.activeField.frame animated:YES];
+    }
+    // ************
+//    NSDictionary* info = [notification userInfo];
+//    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//    CGRect bkgndRect = self.activeField.superview.frame;
+//    bkgndRect.size.height += kbSize.height;
+//    [self.activeField.superview setFrame:bkgndRect];
+//    [self.scrolleView setContentOffset:CGPointMake(0.0, self.activeField.frame.origin.y-kbSize.height) animated:YES];
 }
 
 - (void)onKeyboardHide:(NSNotification *) notification {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)onKeyboardWillBeHide:(NSNotification *) notification {
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrolleView.contentInset = contentInsets;
+    self.scrolleView.scrollIndicatorInsets = contentInsets;
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.activeField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.activeField = nil;
 }
 
 #pragma mark - Other

@@ -38,6 +38,7 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardDidShowNotification object:nil];
     [nc addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardDidHideNotification object:nil];
+    [nc addObserver:self selector:@selector(onKeyboardWillBeHide:) name:UIKeyboardWillHideNotification object:nil];
     
 }
 
@@ -109,6 +110,9 @@
 
 - (void)onKeyboardHide:(NSNotification *) notification {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)onKeyboardWillBeHide:(NSNotification *) notification {
 }
 
 #pragma mark - Validation

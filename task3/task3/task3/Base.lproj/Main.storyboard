@@ -164,6 +164,9 @@
                                                 <rect key="frame" x="25" y="71" width="550" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1lc-t5-Vbe" id="LMX-sV-nZb"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,6 +201,7 @@
                     </view>
                     <connections>
                         <outlet property="resultLabel" destination="f5h-xY-E5h" id="KIj-8t-qkb"/>
+                        <outlet property="scrolleView" destination="cQf-bE-wtG" id="QS3-cd-jEF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hul-n4-fix" userLabel="First Responder" sceneMemberID="firstResponder"/>
