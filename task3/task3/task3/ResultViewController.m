@@ -36,6 +36,10 @@
     self.resultLabel.attributedText = result;
     
     NSLog(@"%@", self.result);
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardDidShowNotification object:nil];
+    [nc addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardDidHideNotification object:nil];
 }
 
 #pragma mark - AttributedStrings
@@ -87,9 +91,25 @@
     return blank;
 }
 
+#pragma mark - Keyboard
+
+- (void)onKeyboardShow:(NSNotification *) notification {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)onKeyboardHide:(NSNotification *) notification {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+#pragma mark - Other
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*
